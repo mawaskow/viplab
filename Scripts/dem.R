@@ -6,3 +6,5 @@ install.packages("rgdal")
 library(raster)
 library(rgdal)
 
+# set working directory
+
