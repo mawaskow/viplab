@@ -1,0 +1,29 @@
+Running Anaconda Prompt as administrator
+
+Options for tif files in python
+
+import rasterio 
+    conda install -c conda-forge/label/dev rasterio
+    "ERROR 4: Unable to open EPSG support file gcs.csV.
+    Try setting the GDAL_DATA environment variable to point 
+    to the directory containing EPSG csv files."
+
+import matplotlib
+
+import numpy
+
+from skimage import io
+
+import skimage.external.tifffile
+
+from osgeo import gdal
+    conda install -c conda-forge gdal
+
+from libtiff import TIFF
+    conda install -c anaconda libtiff
+
+import geopandas
+    conda install -c conda-forge geopandas
+
+import opencv
+    conda install -c conda-forge opencv
