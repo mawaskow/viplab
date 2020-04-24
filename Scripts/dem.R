@@ -32,5 +32,5 @@ chm_raster = dsm_raster - dem_raster
 plot(chm_raster, main = "CHM")
 
 ##### save/export the data #####
-writeRaster(chm_raster, "Data/SantaRita20170708CHM.tiff",
+writeRaster(chm_raster, "Data/SantaRita20170708CHM.tif",
             format= "GTiff")
