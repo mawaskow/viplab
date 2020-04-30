@@ -4,13 +4,13 @@
 #install.packages("rgeos")
 #install.packages("RColorBrewer")
 
-# libraries
+##### libraries #####
 library(raster)
 library(rgdal)
 library(rgeos)
 library(RColorBrewer)
-###
 
+##### function #####
 generate_ndvi <- function(orthophotoinfile, ndvioutfile){
   options(stringsAsFactors = FALSE)
   orthoforndvi <- stack(orthophotoinfile)
@@ -22,9 +22,10 @@ generate_ndvi <- function(orthophotoinfile, ndvioutfile){
               filename= ndvioutfile, format = "GTiff", datatype='INT2S', overwrite = TRUE)
 }
 
-### Here is where you select the folder from which you will select the files
+##### Here is where you select the folder from which you will select the files #####
 filenames <- c(list.files("Data", pattern = "*orthophoto.tif", full.names = 'True'))
 
+##### main code #####
 for (i in seq_along(filenames)){
   len = nchar(filenames[i])
   begin = substr(filenames[i], 1, len-14)

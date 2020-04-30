@@ -3,17 +3,19 @@
 #install.packages("rgeos")
 #install.packages("RColorBrewer")
 
-# libraries
+##### libraries #####
 library(raster)
 library(rgdal)
 library(rgeos)
 library(RColorBrewer)
 
+##### main code #####
+
 # remove factors
 options(stringsAsFactors = FALSE)
 
 # import orthophoto
-orthoforndvi <- stack("Data/SantaRita20170708orthophoto.tif")
+orthoforndvi <- stack("Data/SantaRitaProj1orthophoto.tif")
 
 # convert to rasterbrick (lowers time)
 orthoforndvi_brick <- brick(orthoforndvi)
@@ -27,5 +29,5 @@ ndvicalc <- (nir_brick - r_brick) / (nir_brick + r_brick)
 
 # export ndvi
 writeRaster(x = ndvicalc,
-            filename="Data/SantaRita20170708NDVI.tif", format = "GTiff", datatype='INT2S',
+            filename="Data/SantaRitaProj1NDVI.tif", format = "GTiff", datatype='INT2S',
             overwrite = TRUE)
