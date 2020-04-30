@@ -18,11 +18,12 @@ orthoforndvi <- stack("Data/SantaRita20170708orthophoto.tif")
 # convert to rasterbrick (lowers time)
 orthoforndvi_brick <- brick(orthoforndvi)
 
-# calculate ndvi [naip]
-orthoforndvi_brick[[4]]
+# make r and nir values
+r_brick <- orthoforndvi_brick[[1]]
+nir_brick <- orthoforndvi_brick[[4]]
 
 # calculate ndvi using r[1] and nir[4]
-ndvicalc <- (orthoforndvi_brick[[4]] - orthoforndvi_brick[[1]]) / (orthoforndvi_brick[[4]] + orthoforndvi_brick[[1]])
+ndvicalc <- (nir_brick - r_brick) / (nir_brick + r_brick)
 
 # export ndvi
 writeRaster(x = ndvicalc,
