@@ -1,27 +1,26 @@
 ##### install necessary packages #####
-#install.packages("readxl")
-#install.packages("tidyverse")
+#install.packages("raster")
+#install.packages("rgdal")
 
-##### import libraries #####
-library(readxl)
-library(tidyverse)
+library(raster)
+library(rgdal)
+###
 
-### list the files from the location of where you want to read from
-filenames <- c(list.files("Data/", pattern = "*.tif", full.names = 'True'))
-#filenames
-
-##### initialize lists
-dsmlst <- list_along()
-dtmlst <- list_along()
-
-##### for loop
-for (i in filenames) {
-  n = nchar(i)
-  if substr(i, n-7, n) == "DSM.tif" {
-    list.append(dsmlst, i)
-  } else if substr(i, n-7, n) == "DTM.tif" {
-    list.append(dtmlst, i)
-  }
+generate_chm <- function(dtmfilename, dsmfilename, chmoutfilename){
+  dtm_raster <- raster(dtmfilename)
+  dsm_raster <- raster(dsmfilename)
+  chm_raster <- dsm_raster - dtm_raster
+  writeRaster(chm_raster, chmoutfilename,
+              format= "GTiff", overwrite = TRUE)
 }
-dsmlst
-dtmlst
+
+dsmfiles <- c(list.files("C:\\Users\\MAWaskow\\Documents\\Research\\Spring20\\Coding", pattern = "*DSM.tif", full.names = 'True'))
+dtmfiles <- c(list.files("C:\\Users\\MAWaskow\\Documents\\Research\\Spring20\\Coding", pattern = "*DTM.tif", full.names = 'True'))
+
+for (i in seq_along(dsmfiles)){
+  len = nchar(dsmfiles[i])
+  begin = substr(dsmfiles[i], 1, len-7)
+  end = "CHM.tif"
+  chmname = paste(begin, end, sep = "")
+  generate_chm(dtmfiles[i], dsmfiles[i], chmname)
+}
