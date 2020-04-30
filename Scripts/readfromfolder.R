@@ -14,8 +14,8 @@ generate_chm <- function(dtmfilename, dsmfilename, chmoutfilename){
               format= "GTiff", overwrite = TRUE)
 }
 
-dsmfiles <- c(list.files("C:\\Users\\MAWaskow\\Documents\\Research\\Spring20\\Coding", pattern = "*DSM.tif", full.names = 'True'))
-dtmfiles <- c(list.files("C:\\Users\\MAWaskow\\Documents\\Research\\Spring20\\Coding", pattern = "*DTM.tif", full.names = 'True'))
+dsmfiles <- c(list.files("Data", pattern = "*DSM.tif", full.names = 'True'))
+dtmfiles <- c(list.files("Data", pattern = "*DTM.tif", full.names = 'True'))
 
 for (i in seq_along(dsmfiles)){
   len = nchar(dsmfiles[i])
