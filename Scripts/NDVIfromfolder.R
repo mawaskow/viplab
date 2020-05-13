@@ -18,6 +18,7 @@ generate_ndvi <- function(orthophotoinfile, ndvioutfile){
   r_brick <- orthoforndvi_brick[[1]]
   nir_brick <- orthoforndvi_brick[[4]]
   ndvicalc <- (nir_brick - r_brick) / (nir_brick + r_brick)
+  plot(ndvicalc, 1000000, 1000000, main = ndvioutfile)
   writeRaster(x = ndvicalc,
               filename= ndvioutfile, format = "GTiff", datatype='INT2S', overwrite = TRUE)
 }

@@ -35,21 +35,20 @@ Below is the R code which takes the path of a folder containing DSMs and DTMs (i
 ```
 library(raster)
 library(rgdal)
+###
 
-##### function #####
 generate_chm <- function(dtmfilename, dsmfilename, chmoutfilename){
   dtm_raster <- raster(dtmfilename)
   dsm_raster <- raster(dsmfilename)
   chm_raster <- dsm_raster - dtm_raster
+  plot(chm_raster, 1000000, 1000000, main = chmoutfilename)
   writeRaster(chm_raster, chmoutfilename,
               format= "GTiff", overwrite = TRUE)
 }
 
-##### Here (the "Data" entry) is where you select the folder path from which you will select the files #####
 dsmfiles <- c(list.files("Data", pattern = "*DSM.tif", full.names = 'True'))
 dtmfiles <- c(list.files("Data", pattern = "*DTM.tif", full.names = 'True'))
 
-##### main code #####
 for (i in seq_along(dsmfiles)){
   len = nchar(dsmfiles[i])
   begin = substr(dsmfiles[i], 1, len-7)
