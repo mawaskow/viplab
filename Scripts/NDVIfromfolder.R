@@ -24,7 +24,7 @@ generate_ndvi <- function(orthophotoinfile, ndvioutfile){
 }
 
 ##### Here is where you select the folder from which you will select the files #####
-filenames <- c(list.files("Data", pattern = "*orthophoto.tif", full.names = 'True'))
+filenames <- c(list.files("C:\\Users\\MAWaskow\\Documents\\Research\\Spring20\\Coding", pattern = "*orthophoto.tif", full.names = 'True'))
 
 ##### main code #####
 for (i in seq_along(filenames)){
