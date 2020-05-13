@@ -1,0 +1,116 @@
+---
+title: "Spring 2020 Research Report"
+author: "mawaskow"
+date: "5/12/2020"
+output:
+  html_document: default
+  pdf_document: default
+  word_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### VIP Lab
+Aside from my work in the USGS river digitizing project, this semester I have been doing work in the VIPLab concerning the problem of determining the ideal drone height over data collection sites.
+
+This problem, and the research project design in order to solve it, require a myriad of background information.
+
+Given a selection of data recorded in the past, I generated DSMs, DTMs, CHMs, and orthophotos from various softwares and have compiled them in this report so that their outputs and quality can be compared.
+
+
+### Initial Data
+The data recorded in the past was:
+```{r echo= FALSE, results = 'asis'}
+table1 <- read.csv("quasimetadata.csv", header = TRUE, sep = ",")
+library(knitr)
+kable(table1)
+```
+
+
+### Code
+Below is the R code which takes the path of a folder containing DSMs and DTMs (if the files are labelled appropriately), and outputs to that same file CHMs with names corresponding to the names of their respective DSMs and DTMs:
+
+```
+library(raster)
+library(rgdal)
+###
+
+generate_chm <- function(dtmfilename, dsmfilename, chmoutfilename){
+  dtm_raster <- raster(dtmfilename)
+  dsm_raster <- raster(dsmfilename)
+  chm_raster <- dsm_raster - dtm_raster
+  plot(chm_raster, 1000000, 1000000, main = chmoutfilename)
+  writeRaster(chm_raster, chmoutfilename,
+              format= "GTiff", overwrite = TRUE)
+}
+
+dsmfiles <- c(list.files("Data", pattern = "*DSM.tif", full.names = 'True'))
+dtmfiles <- c(list.files("Data", pattern = "*DTM.tif", full.names = 'True'))
+
+for (i in seq_along(dsmfiles)){
+  len = nchar(dsmfiles[i])
+  begin = substr(dsmfiles[i], 1, len-7)
+  end = "CHM.tif"
+  chmname = paste(begin, end, sep = "")
+  generate_chm(dtmfiles[i], dsmfiles[i], chmname)
+}
+```
+
+What follows is the R code which takes the path of a folder containing orthophotos and (if the files are labeled correctly) outputs an NDVI to the same folder with a name corresponding to the name of the orthophoto file.
+```
+library(raster)
+library(rgdal)
+library(rgeos)
+library(RColorBrewer)
+
+##### function #####
+generate_ndvi <- function(orthophotoinfile, ndvioutfile){
+  options(stringsAsFactors = FALSE)
+  orthoforndvi <- stack(orthophotoinfile)
+  orthoforndvi_brick <- brick(orthoforndvi)
+  r_brick <- orthoforndvi_brick[[1]]
+  nir_brick <- orthoforndvi_brick[[4]]
+  ndvicalc <- (nir_brick - r_brick) / (nir_brick + r_brick)
+  writeRaster(x = ndvicalc,
+              filename= ndvioutfile, format = "GTiff", datatype='INT2S', overwrite = TRUE)
+}
+
+##### Here (the "Data" entry) is where you select the folder path from which you will select the files #####
+filenames <- c(list.files("Data", pattern = "*orthophoto.tif", full.names = 'True'))
+
+##### main code #####
+for (i in seq_along(filenames)){
+  len = nchar(filenames[i])
+  begin = substr(filenames[i], 1, len-14)
+  end = "NDVI.tif"
+  ndviname = paste(begin, end, sep = "")
+  generate_ndvi(filenames[i], ndviname)
+}
+```
+
+### Program Outputs
+
+#### WebODM
+### DSMs and DTMs
+
+![Santa Rita DSM](Data/WebODM/basefiles/SantaRitaDSM.tif) ![Santa Rita DTM](Data/WebODM/basefiles/SantaRitaDTM.tif)
+
+![Santa Rita Project 1 DSM](Data/WebODM/basefiles/SantaRitaProj1DSM.tif) ![Santa Rita Project 1 DTM](Data/WebODM/basefiles/SantaRitaProj1DTM.tif)
+
+![Santa Rita Project 3 DSM](Data/WebODM/basefiles/SantaRitaProj3DSM.tif) ![Santa Rita Project 3 DTM](Data/WebODM/basefiles/SantaRitaProj3DTM.tif)
+
+![Santa Rita Project 5 DSM](Data/WebODM/basefiles/SantaRitaProj5DSM.tif) ![Santa Rita Project 5 DTM](Data/WebODM/basefiles/SantaRitaProj5DTM.tif)
+
+### CHMs
+
+![Santa Rita CHM](Data/WebODM/generated/SantaRitaCHM.tif) ![Santa Rita Project 1 CHM](Data/WebODM/generated/SantaRitaProj1CHM.tif)
+
+### Orthophotos
+
+![Santa Rita Orthophoto](Data/WebODM/generated/SantaRitaorthophoto.tif) ![Santa Rita Project 1 Orthophoto](Data/WebODM/generated/SantaRitaProj1orthophoto.tif)
+
+### NDVIs
+
+![Santa Rita NDVI](Data/WebODM/generated/SantaRitaNDVI.tif) ![Santa Rita Project 1 NDVI](Data/WebODM/generated/SantaRitaProj1NDVI.tif)

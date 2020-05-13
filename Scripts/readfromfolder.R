@@ -10,6 +10,7 @@ generate_chm <- function(dtmfilename, dsmfilename, chmoutfilename){
   dtm_raster <- raster(dtmfilename)
   dsm_raster <- raster(dsmfilename)
   chm_raster <- dsm_raster - dtm_raster
+  plot(chm_raster, 1000000, 1000000, main = chmoutfilename)
   writeRaster(chm_raster, chmoutfilename,
               format= "GTiff", overwrite = TRUE)
 }
