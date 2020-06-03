@@ -19,7 +19,6 @@ This problem, and the research project design in order to solve it, require a my
 
 Given a selection of data recorded in the past, I generated DSMs, DTMs, CHMs, and orthophotos from various softwares and have compiled them in this report so that their outputs and quality can be compared.
 
-
 ### Initial Data
 The data recorded in the past was:
 ```{r echo= FALSE, results = 'asis'}
@@ -89,100 +88,178 @@ for (i in seq_along(filenames)){
 }
 ```
 
-### Program Outputs
+## Program Outputs
 
-#### WebODM
-#### DSMs and DTMs
-Maricopa DSM
-![Maricopa DSM](Data/WebODM/Rversions/MaricopaDSM.png) 
-Maricopa DTM
-![Maricopa DTM](Data/WebODM/Rversions/MaricopaDTM.png)
+## WebODM
+### DSMs and DTMs
+The following DSMs and DTMs are Singleband Pseudocolor renderings from Linear Interpolation on a Spectral color ramp of 5 classes done in a Continuous mode.
+#### Maricopa DSM and DTM
 
-Flagstaff DSM
-![Flagstaff DSM](Data/WebODM/Rversions/FlagstaffDSM.png) 
-Flagstaff DTM
-![Flagstaff DTM](Data/WebODM/Rversions/FlagstaffDTM.png)
+```{r echo = FALSE, image_grobs, fig.show = "hold", out.width = "50%", fig.align = "default"}
+knitr::include_graphics("Data/WebODM/Rversions/MaricopaDSM.png")
+knitr::include_graphics("Data/WebODM/Rversions/MaricopaDTM.png")
+```
 
-Flagstaff2 DSM
-![Flagstaff2 DSM](Data/WebODM/Rversions/Flagstaff2DSM.png) 
-Flagstaff2 DTM
-![Flagstaff2 DTM](Data/WebODM/Rversions/Flagstaff2DTM.png)
+#### Flagstaff DSM and DTM
 
-Flagstaff3 DSM
-![Flagstaff3 DSM](Data/WebODM/Rversions/Flagstaff3DSM.png) 
-Flagstaff3 DTM
-![Flagstaff3 DTM](Data/WebODM/Rversions/Flagstaff3DTM.png)
+```{r echo = FALSE, fig.show = "hold", out.width = "50%", fig.align = "default"}
+knitr::include_graphics("Data/WebODM/Rversions/FlagstaffDSM.png")
+knitr::include_graphics("Data/WebODM/Rversions/FlagstaffDTM.png")
+```
 
-Santa Rita DSM
-![Santa Rita DSM](Data/WebODM/Rversions/SantaRitaDSM.png) 
-Santa Rita DTM
-![Santa Rita DTM](Data/WebODM/Rversions/SantaRitaDTM.png)
+#### Flagstaff2 DSM and DTM
 
-Santa Rita Project 1 DSM
-![Santa Rita Project 1 DSM](Data/WebODM/Rversions/SantaRita1DSM.png) 
-Santa Rita Project 1 DTM
-![Santa Rita Project 1 DTM](Data/WebODM/Rversions/SantaRita1DTM.png)
+```{r echo = FALSE, fig.show = "hold", out.width = "50%", fig.align = "default"}
+knitr::include_graphics("Data/WebODM/Rversions/Flagstaff2DSM.png")
+knitr::include_graphics("Data/WebODM/Rversions/Flagstaff2DTM.png")
+```
 
-Santa Rita Project 3 DSM
-![Santa Rita Project 3 DSM](Data/WebODM/Rversions/SantaRita3DSM.png) 
-Santa Rita Project 3 DTM
-![Santa Rita Project 3 DTM](Data/WebODM/Rversions/SantaRita3DTM.png)
+#### Flagstaff3 DSM and DTM
 
-Santa Rita Project 5 DSM
-![Santa Rita Project 5 DSM](Data/WebODM/Rversions/SantaRita5DSM.png) 
-Santa Rita Project 5 DTM
-![Santa Rita Project 5 DTM](Data/WebODM/Rversions/SantaRita5DTM.png)
+```{r echo = FALSE, fig.show = "hold", out.width = "50%", fig.align = "default"}
+knitr::include_graphics("Data/WebODM/Rversions/Flagstaff3DSM.png")
+knitr::include_graphics("Data/WebODM/Rversions/Flagstaff3DTM.png")
+```
 
-#### CHMs
-Maricopa CHM
-![Maricopa CHM](Data/WebODM/Rversions/MaricopaCHM.png)
-Flagstaff CHM
-![Flagstaff CHM](Data/WebODM/Rversions/FlagstaffCHM.png)
-Flagstaff2 CHM
-![Flagstaff2 CHM](Data/WebODM/Rversions/Flagstaff2CHM.png)
-Flagstaff3 CHM
-![Flagstaff3 CHM](Data/WebODM/Rversions/Flagstaff3CHM.png)
-Santa Rita CHM
-![Santa Rita CHM](Data/WebODM/Rversions/SantaRitaCHM.png)
-Santa Rita Project 1 CHM
-![Santa Rita Project 1 CHM](Data/WebODM/Rversions/SantaRita1CHM.png)
-Santa Rita Project 3 CHM
-![Santa Rita Project 3 CHM](Data/WebODM/Rversions/SantaRita3CHM.png)
-Santa Rita Project 5 CHM
-![Santa Rita Project 5 CHM](Data/WebODM/Rversions/SantaRita5CHM.png)
+#### Santa Rita DSM and DTM
 
-#### Orthophotos
-Maricopa Orthophoto
-![Maricopa Orthophoto](Data/WebODM/pngorthophotos/Maricopaorthophoto.png)
-Flagstaff Orthophoto
-![Flagstaff Orthophoto](Data/WebODM/pngorthophotos/Flagstafforthophoto.png)
-Flagstaff2 Orthophoto
-![Flagstaff2 Orthophoto](Data/WebODM/pngorthophotos/Flagstaff2orthophoto.png)
-Flagstaff3 Orthophoto
-![Flagstaff3 Orthophoto](Data/WebODM/pngorthophotos/Flagstaff3orthophoto.png)
-Santa Rita Orthophoto
-![Santa Rita Orthophoto](Data/WebODM/pngorthophotos/SantaRitaorthophoto.png) 
-Santa Rita Project 1 Orthophoto
-![Santa Rita Project 1 Orthophoto](Data/WebODM/pngorthophotos/SantaRita1orthophoto.png)
-Santa Rita Project 3 Orthophoto
-![Santa Rita Project 3 Orthophoto](Data/WebODM/pngorthophotos/SantaRita3orthophoto.png)
-Santa Rita Project 5 Orthophoto
-![Santa Rita Project 5 Orthophoto](Data/WebODM/pngorthophotos/SantaRita5orthophoto.png)
+```{r echo = FALSE, fig.show = "hold", out.width = "50%", fig.align = "default"}
+knitr::include_graphics("Data/WebODM/Rversions/SantaRitaDSM.png")
+knitr::include_graphics("Data/WebODM/Rversions/SantaRitaDTM.png")
+```
 
-#### NDVIs
-Maricopa NDVI
-![Maricopa NDVI](Data/WebODM/Rversions/MaricopaNDVI.png)
-Flagstaff NDVI
-![Flagstaff NDVI](Data/WebODM/Rversions/FlagstaffNDVI.png)
-Flagstaff2 NDVI
-![Flagstaff2 NDVI](Data/WebODM/Rversions/Flagstaff2NDVI.png)
-Flagstaff3 NDVI
-![Flagstaff3 NDVI](Data/WebODM/Rversions/Flagstaff3NDVI.png)
-Santa Rita NDVI
-![Santa Rita NDVI](Data/WebODM/Rversions/SantaRitaNDVI.png) 
-Santa Rita Project 1 NDVI
-![Santa Rita Project 1 NDVI](Data/WebODM/Rversions/SantaRita1NDVI.png)
-Santa Rita Project 3 NDVI
-![Santa Rita Project 3 NDVI](Data/WebODM/Rversions/SantaRita3NDVI.png)
-Santa Rita Project 5 NDVI
-![Santa Rita Project 5 NDVI](Data/WebODM/Rversions/SantaRita5NDVI.png)
+#### Santa Rita Project 1 DSM and DTM
+
+```{r echo = FALSE, fig.show = "hold", out.width = "50%", fig.align = "default"}
+knitr::include_graphics("Data/WebODM/Rversions/SantaRita1DSM.png")
+knitr::include_graphics("Data/WebODM/Rversions/SantaRita1DTM.png")
+```
+
+#### Santa Rita Project 3 DSM and DTM
+
+```{r echo = FALSE, fig.show = "hold", out.width = "50%", fig.align = "default"}
+knitr::include_graphics("Data/WebODM/Rversions/SantaRita3DSM.png")
+knitr::include_graphics("Data/WebODM/Rversions/SantaRita3DTM.png")
+```
+
+#### Santa Rita Project 5 DSM and DTM
+
+```{r echo = FALSE, fig.show = "hold", out.width = "50%", fig.align = "default"}
+knitr::include_graphics("Data/WebODM/Rversions/SantaRita5DSM.png")
+knitr::include_graphics("Data/WebODM/Rversions/SantaRita5DTM.png")
+```
+
+### CHMs
+The following DSMs and DTMs are Singleband Pseudocolor renderings from Linear Interpolation on a Spectral color ramp of 5 classes done in a Quantile mode.
+#### Maricopa CHM and Flagstaff CHM
+
+```{r echo = FALSE, fig.show = "hold", out.width = "50%", fig.align = "default"}
+knitr::include_graphics("Data/WebODM/Rversions/MaricopaCHM.png")
+knitr::include_graphics("Data/WebODM/Rversions/FlagstaffCHM.png")
+```
+
+#### Flagstaff2 CHM and Flagstaff3 CHM
+
+```{r echo = FALSE, fig.show = "hold", out.width = "50%", fig.align = "default"}
+knitr::include_graphics("Data/WebODM/Rversions/Flagstaff2CHM.png")
+knitr::include_graphics("Data/WebODM/Rversions/Flagstaff3CHM.png")
+```
+
+#### Santa Rita CHM and Santa Rita Project 1 CHM
+
+```{r echo = FALSE, fig.show = "hold", out.width = "50%", fig.align = "default"}
+knitr::include_graphics("Data/WebODM/Rversions/SantaRitaCHM.png")
+knitr::include_graphics("Data/WebODM/Rversions/SantaRita1CHM.png")
+```
+
+#### Santa Rita Project 3 CHM and Santa Rita Project 5 CHM
+
+```{r echo = FALSE, fig.show = "hold", out.width = "50%", fig.align = "default"}
+knitr::include_graphics("Data/WebODM/Rversions/SantaRita3CHM.png")
+knitr::include_graphics("Data/WebODM/Rversions/SantaRita5CHM.png")
+```
+
+### Orthophotos
+#### Maricopa Orthophoto and Flagstaff Orthophoto
+
+```{r echo = FALSE, fig.show = "hold", out.width = "50%", fig.align = "default"}
+knitr::include_graphics("Data/WebODM/pngorthophotos/Maricopaorthophoto.png")
+knitr::include_graphics("Data/WebODM/pngorthophotos/Flagstafforthophoto.png")
+```
+
+#### Flagstaff2 Orthophoto and Flagstaff 3 Orthophoto
+
+```{r echo = FALSE, fig.show = "hold", out.width = "50%", fig.align = "default"}
+knitr::include_graphics("Data/WebODM/pngorthophotos/Flagstaff2orthophoto.png")
+knitr::include_graphics("Data/WebODM/pngorthophotos/Flagstaff3orthophoto.png")
+```
+
+#### Santa Rita Orthophoto and Santa Rita Project 1 Orthophoto
+
+```{r echo = FALSE, fig.show = "hold", out.width = "50%", fig.align = "default"}
+knitr::include_graphics("Data/WebODM/pngorthophotos/SantaRitaorthophoto.png")
+knitr::include_graphics("Data/WebODM/pngorthophotos/SantaRita1orthophoto.png")
+```
+
+#### Santa Rita Project 3 Orthophoto and Santa Rita Project 5 Orthophoto
+
+```{r echo = FALSE, fig.show = "hold", out.width = "50%", fig.align = "default"}
+knitr::include_graphics("Data/WebODM/pngorthophotos/SantaRita3orthophoto.png")
+knitr::include_graphics("Data/WebODM/pngorthophotos/SantaRita5orthophoto.png")
+```
+
+### NDVIs
+#### Maricopa NDVI and Flagstaff NDVI
+
+```{r echo = FALSE, fig.show = "hold", out.width = "50%", fig.align = "default"}
+knitr::include_graphics("Data/WebODM/Rversions/MaricopaNDVI.png")
+knitr::include_graphics("Data/WebODM/Rversions/FlagstaffNDVI.png")
+```
+
+#### Flagstaff2 NDVI and Flagstaff 3 NDVI
+
+```{r echo = FALSE, fig.show = "hold", out.width = "50%", fig.align = "default"}
+knitr::include_graphics("Data/WebODM/Rversions/Flagstaff2NDVI.png")
+knitr::include_graphics("Data/WebODM/Rversions/Flagstaff3NDVI.png")
+```
+
+#### Santa Rita NDVI and Santa Rita Project 1 NDVI
+
+```{r echo = FALSE, fig.show = "hold", out.width = "50%", fig.align = "default"}
+knitr::include_graphics("Data/WebODM/Rversions/SantaRitaNDVI.png")
+knitr::include_graphics("Data/WebODM/Rversions/SantaRita1NDVI.png")
+```
+
+#### Santa Rita Project 3 NDVI and Santa Rita Project 5 NDVI
+
+```{r echo = FALSE, fig.show = "hold", out.width = "50%", fig.align = "default"}
+knitr::include_graphics("Data/WebODM/Rversions/SantaRita3NDVI.png")
+knitr::include_graphics("Data/WebODM/Rversions/SantaRita5NDVI.png")
+```
+
+## Meshroom
+
+#### Sample Output (3D Model in Program)
+
+```{r echo= FALSE, results = 'asis'}
+knitr::include_graphics("Data/Meshrooms/MeshroomsScreenshot.png")
+```
+
+#### Sample Output (3D Object)
+
+```{r echo= FALSE, results = 'asis'}
+knitr::include_graphics("Data/Meshrooms/meshroomsmesh.png")
+```
+
+#### Sample Error Report
+
+```{r echo= FALSE, results = 'asis'}
+knitr::include_graphics("Data/Meshrooms/MeshroomError.png")
+```
+
+#### Verdict
+Meshroom is useful for generating and viewing 3D objects, but its export options and generational capacities are otherwise limited.
+
+## Agisoft Photoscan Professional
+
+## Pix4D
